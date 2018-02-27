@@ -1,5 +1,10 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <header role="banner">
-<h1><span>Chatroom</span></h1>
+<h1 id="title">Chatroom</h1>
+    <c:if test="${user != null}">
+        <div id="status-block">${user.getFirstName()}: ${user.getStatus()}</div>
+    </c:if>
 <nav>
 <ul>
     <c:choose>
@@ -15,11 +20,4 @@
     <h2>
         ${param.title}
     </h2>
-    <c:when test="${user!=null}">
-        <p id="status-block">${user.getFirstName()}: <div id="status">test</div>
-        </p>
-    </c:when>
-    <c:otherwise>
-
-    </c:otherwise>
 </header>

@@ -144,4 +144,8 @@ nav ul li#current {
 }
 #status-block{
 	display: inline-block;
+	float: right;
+}
+h1{
+	display: inline-block;
 }

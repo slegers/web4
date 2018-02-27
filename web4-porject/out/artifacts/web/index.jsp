@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
@@ -24,11 +23,15 @@
 </c:if> <c:choose>
 	<c:when test="${user!=null}">
 		<p>Welcome ${user.getFirstName()}!</p>
-		<form method="post" action="Controller?action=LogOut">
-			<p>
-				<input type="submit" id="logoutbutton" value="Log Out">
-			</p>
-		</form>
+			<form method="post" action="Controller?action=Status">
+				<p>
+					<label for="status">Your status </label>
+					<input type="text" id="status" name="status" value="">
+				</p>
+				<p>
+					<input type="submit" id="status-button" value="Update Status">
+				</p>
+			</form>
 	</c:when>
 	<c:otherwise>
 		<form method="post" action="Controller?action=LogIn">

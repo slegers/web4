@@ -18,14 +18,16 @@ public class Person {
 	private String lastName;
 	private Role role;
 	private HashMap<String,Person> vriendenlijst;
+	private String status;
 
 	public Person(String userId, String password, String firstName,
-			String lastName,Role role) {
+			String lastName,Role role,String status) {
 		setUserId(userId);
 		setHashedPassword(password);
 		setFirstName(firstName);
 		setLastName(lastName);
 		setRole(role);
+		setStatus(status);
 	}
 
 	public Person(String userId, String password, String salt,
@@ -150,4 +152,13 @@ public class Person {
 		this.lastName = lastName;
 	}
 
+	public void setStatus(String status) {
+		if(status.trim().isEmpty()){
+			this.status = "Online";
+		}
+		this.status = status;
+	}
+	public String getStatus(){
+		return status;
+	}
 }
