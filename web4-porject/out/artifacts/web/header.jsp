@@ -3,7 +3,7 @@
 <header role="banner">
 <h1 id="title">Chatroom</h1>
     <c:if test="${user != null}">
-        <div id="status-block">${user.getFirstName()}: <div id="status-text"> ${user.getStatus()}</div></div>
+        <div id="status-block">${user.getFirstName()}: <div id="status-text"></div></div>
     </c:if>
 <nav>
 <ul>

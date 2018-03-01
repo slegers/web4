@@ -52,7 +52,7 @@ public class Controller extends HttpServlet {
         		destination="index.jsp";
         	}
         }
-        if (handler instanceof SynHandler) {
+        if (handler == null || handler instanceof SynHandler) {
 			RequestDispatcher view = request.getRequestDispatcher(destination);
 			view.forward(request, response);
 		}

@@ -14,4 +14,5 @@ public class Status extends RequestHandler {
         request.getSession().setAttribute("user",p);
         return request.getParameter("status");
     }
+
 }
