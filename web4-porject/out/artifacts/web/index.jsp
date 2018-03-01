@@ -23,15 +23,13 @@
 </c:if> <c:choose>
 	<c:when test="${user!=null}">
 		<p>Welcome ${user.getFirstName()}!</p>
-			<form method="post" action="Controller?action=Status">
 				<p>
-					<label for="status">Your status </label>
-					<input type="text" id="status" name="status" value="">
+					<label for="status-input">Your status </label>
+					<input type="text" id="status-input" name="status-input">
 				</p>
 				<p>
-					<input type="submit" id="status-button" value="Update Status">
+					<input type="submit" onclick="setNewStatus();" id="status-button" value="Update Status">
 				</p>
-			</form>
 	</c:when>
 	<c:otherwise>
 		<form method="post" action="Controller?action=LogIn">

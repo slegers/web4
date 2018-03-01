@@ -24,11 +24,11 @@
 	<c:when test="${user!=null}">
 		<p>Welcome ${user.getFirstName()}!</p>
 				<p>
-					<label for="status">Your status </label>
-					<input type="text" id="status" name="status" value="">
+					<label for="status-input">Your status </label>
+					<input type="text" id="status-input" name="status-input">
 				</p>
 				<p>
-					<input onclick="setNewStatus();" id="status-button" value="Update Status">
+					<input type="submit" onclick="setNewStatus();" id="status-button" value="Update Status">
 				</p>
 	</c:when>
 	<c:otherwise>

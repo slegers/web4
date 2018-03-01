@@ -12,6 +12,6 @@ public class Status extends RequestHandler {
         Person p = (Person) request.getSession().getAttribute("user");
         p.setStatus(request.getParameter("status"));
         request.getSession().setAttribute("user",p);
-        return "index.jsp";
+        return request.getParameter("status");
     }
 }

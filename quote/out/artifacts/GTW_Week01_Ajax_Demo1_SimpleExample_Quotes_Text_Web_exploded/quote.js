@@ -30,7 +30,7 @@ function getData () {
 				var quoteText = document.createTextNode(response);
 				quoteParagraph.removeChild(quoteParagraph.childNodes[0]);
 				quoteParagraph.appendChild(quoteText);
-			}	
+			}
 		}
 	}					
 }

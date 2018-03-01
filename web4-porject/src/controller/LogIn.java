@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import domain.Person;
 import domain.PersonService;
 
-public class LogIn extends RequestHandler {
+public class LogIn extends RequestHandler implements SynHandler {
 
 	@Override
 	public String handleRequest(HttpServletRequest request,
