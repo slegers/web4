@@ -145,6 +145,7 @@ nav ul li#current {
 #status-block{
 	display: inline-block;
 	float: right;
+	margin-left:10px;
 }
 h1{
 	display: inline-block;

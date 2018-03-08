@@ -1,5 +1,12 @@
 var xHRObject = new XMLHttpRequest();
 
+window.onload = function(){
+    xHRObject.open("GET","Controller?action=GetStatus",true);
+    xHRObject.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xHRObject.onreadystatechange = getData;
+    xHRObject.send();
+}
+
 function setNewStatus() {
     var status = document.getElementById("status-input");
     var st = "status=" + status.value;

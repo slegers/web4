@@ -1,5 +1,12 @@
 var xHRObject = new XMLHttpRequest();
 
+window.onload = function(){
+    xHRObject.open("GET","Controller?action=GetStatus",true);
+    xHRObject.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xHRObject.onreadystatechange = getData;
+    xHRObject.send();
+}
+
 function setNewStatus() {
     var status = document.getElementById("status-input");
     var st = "status=" + status.value;
@@ -17,10 +24,10 @@ function getData(){
         var statusPar = statusDiv.childNodes[0];
 
         if (statusPar == null) {
-            window.alert("j")
             statusPar = document.createElement('p');
             statusPar.id = "quoteText";
             var statusText = document.createTextNode(response);
+            alert(document.createTextNode(response));
             statusPar.appendChild(statusText);
             statusDiv.appendChild(statusPar);
         }

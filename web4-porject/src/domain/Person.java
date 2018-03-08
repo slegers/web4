@@ -32,12 +32,7 @@ public class Person {
 
 	public Person(String userId, String password, String salt,
 				  String firstName, String lastName,Role role) {
-		setUserId(userId);
-		setPassword(password);
-		setSalt(salt);
-		setFirstName(firstName);
-		setLastName(lastName);
-		setRole(role);
+		this(userId,password,firstName,lastName,role,"online");
 	}
 
 	public Person() {
