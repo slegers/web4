@@ -22,6 +22,7 @@ public class Person {
 
 	public Person(String userId, String password, String firstName,
 			String lastName,Role role,String status) {
+		vriendenlijst = new HashMap<>();
 		setUserId(userId);
 		setHashedPassword(password);
 		setFirstName(firstName);
@@ -36,6 +37,7 @@ public class Person {
 	}
 
 	public Person() {
+
 	}
 
 	public Role getRole() {
@@ -155,5 +157,16 @@ public class Person {
 	}
 	public String getStatus(){
 		return status;
+	}
+	public void addFriend(Person p){
+		vriendenlijst.put(p.getUserId(),p);
+	}
+
+	public void removeFriend(Person p){
+		vriendenlijst.remove(p);
+	}
+
+	public void editFriend(Person p){
+		addFriend(p);
 	}
 }

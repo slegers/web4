@@ -27,7 +27,6 @@ function getData(){
             statusPar = document.createElement('p');
             statusPar.id = "quoteText";
             var statusText = document.createTextNode(response);
-            alert(document.createTextNode(response));
             statusPar.appendChild(statusText);
             statusDiv.appendChild(statusPar);
         }

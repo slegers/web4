@@ -4,6 +4,13 @@
 <h1 id="title">Chatroom</h1>
     <c:if test="${user != null}">
         <div id="status-block">${user.getFirstName()}: <div id="status-text"></div></div>
+        <p>
+            <label for="status-input">Your status </label>
+            <input type="text" id="status-input" name="status-input">
+        </p>
+        <p>
+            <input type="submit" onclick="setNewStatus();" id="status-button" value="Update Status">
+        </p>
     </c:if>
 <nav>
 <ul>

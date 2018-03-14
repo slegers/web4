@@ -14,7 +14,7 @@ public class PersonRepositoryStub implements PersonRepository {
 	public PersonRepositoryStub () {
 		Person administrator = new Person("bib@ucll.be", "t", "Bib", "Liothekaris", Role.BIB,"online");
 		add(administrator);
-		Person jan = new Person("jan@ucll.be", "t", "Jan", "Janssens", Role.LID,"online");
+		Person jan = new Person("jan@ucll.be", "t", "Jan", "Janssens", Role.LID,"test");
 		add(jan);
 		Person an = new Person("an@ucll.be", "t", "An", "Cornelissen", Role.LID,"online");
 		add(an);
