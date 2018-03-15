@@ -23,13 +23,6 @@
 </c:if> <c:choose>
 	<c:when test="${user!=null}">
 		<p>Welcome ${user.getFirstName()}!</p>
-				<p>
-					<label for="status-input">Your status </label>
-					<input type="text" id="status-input" name="status-input">
-				</p>
-				<p>
-					<input type="submit" onclick="setNewStatus();" id="status-button" value="Update Status">
-				</p>
 	</c:when>
 	<c:otherwise>
 		<form method="post" action="Controller?action=LogIn">

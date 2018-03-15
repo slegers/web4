@@ -5,6 +5,7 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -168,5 +169,9 @@ public class Person {
 
 	public void editFriend(Person p){
 		addFriend(p);
+	}
+
+	public ArrayList<Person> getVriendenlijst() {
+		return new ArrayList<>(vriendenlijst.values());
 	}
 }
