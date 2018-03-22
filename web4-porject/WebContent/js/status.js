@@ -20,9 +20,7 @@ function getData(){
     if(xHRObject.status == 200 && xHRObject.readyState == 4){
         var response = xHRObject.responseText;
         var statusDiv = document.getElementById("status-text");
-
         var statusPar = statusDiv.childNodes[0];
-
         if (statusPar == null) {
             statusPar = document.createElement('p');
             statusPar.id = "quoteText";

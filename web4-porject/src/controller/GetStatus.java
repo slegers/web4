@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 public class GetStatus extends RequestHandler{
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+
         Person p = (Person) request.getSession().getAttribute("user");
         if(p == null){
             return "";

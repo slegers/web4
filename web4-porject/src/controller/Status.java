@@ -9,8 +9,8 @@ public class Status extends RequestHandler {
 
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-
             Person p = (Person) request.getSession().getAttribute("user");
+        System.out.println(request.getParameter("status"));
             p.setStatus(request.getParameter("status"));
             request.getSession().setAttribute("user", p);
             return p.getStatus();
