@@ -27,24 +27,22 @@
                 </c:forEach>
             </ul>
         </div>
-    </c:if> <c:choose>
+    </c:if>
+    <c:choose>
     <c:when test="${user!=null}">
         <table>
             <tr>
                 <th>Name</th>
                 <th>Status</th>
             </tr>
-            <c:forEach var="friend" items="${friends}">
-                <tr>
-                    <td>${friend.firstName}</td>
-                    <td>${friend.status}</td>
-                </tr>
-            </c:forEach>
+            <tbody id="friends-table">
+
+            </tbody>
         </table>
         <div class="add_friend_form">
         <p>
-            <label for="status-input">Your friends userID </label>
-            <input type="text" id="status-input" name="status-input">
+            <label for="email-input">Your friends userID </label>
+            <input type="text" id="email-input" name="email-input">
         </p>
         <p>
             <input type="submit" onclick="addNewFriend();" id="status-button" value="Add Friend">
