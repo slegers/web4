@@ -1,0 +1,7 @@
+<head>
+<meta charset="UTF-8">
+<title>${param.title }</title>
+<link rel="stylesheet" type="text/css" href="css/sample.css">
+    <script type="text/javascript" src="js/status.js"></script>
+    <script type="text/javascript" src="js/friends.js"></script>
+</head>
