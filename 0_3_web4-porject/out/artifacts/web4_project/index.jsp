@@ -102,7 +102,7 @@
 				<option value="2">Kan web2 & Web3 worden samengevoegd tot 1 vak van 4 studiepunten?</option>
 				<option value="3">Moet netwerken uitgebreider aan bod komen in deze opleiding?</option>
 				<option value="4">Wat zijn de examenvragen van web4?</option>
-				<option value="5">Waren de segregatiewetten van de USA anders dan de Neurenberger wetten?</option>
+				<option value="5">Waren de segregatiewetten van de USA anders dan de Neurenberger wetten?git </option>
 			</select>
 		</p>
 		<p>

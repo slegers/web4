@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import domain.Person;
-import domain.PersonService;
+import domain.ChatService;
 
 public class LogIn extends RequestHandler implements SynHandler {
 
@@ -29,8 +29,8 @@ public class LogIn extends RequestHandler implements SynHandler {
 		}
 		
 		if (errors.size() == 0) {
-			PersonService personService = super.getPersonService();
-			Person person = personService.getAuthenticatedUser(email, password);
+			ChatService chatService = super.getChatService();
+			Person person = chatService.getAuthenticatedUser(email, password);
 			if (person != null) {
 				createSession(person, request, response);
 			} else {

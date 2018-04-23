@@ -8,7 +8,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class AddFriend extends RequestHandler
 {
@@ -18,7 +17,7 @@ public class AddFriend extends RequestHandler
         Person p = (Person) request.getSession().getAttribute("user");
 
         String userId = request.getParameter("email");
-        Person friend = getPersonService().getPerson(userId);
+        Person friend = getChatService().getPerson(userId);
         p.addFriend(friend);
 
         ObjectMapper mapper = new ObjectMapper();

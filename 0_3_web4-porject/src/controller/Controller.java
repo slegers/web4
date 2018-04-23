@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import domain.PersonService;
+import domain.ChatService;
 
 @WebServlet("/Controller")
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private PersonService model = new PersonService();
+	private ChatService model = new ChatService();
 	private ControllerFactory controllerFactory = new ControllerFactory();
 
 	public Controller() {
