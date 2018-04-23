@@ -24,7 +24,6 @@ public class GetFriends extends RequestHandler
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-        System.out.println(p.getVriendenlijst());
 
         return mapper.writeValueAsString(p.getVriendenlijst());
     }

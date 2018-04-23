@@ -43,5 +43,71 @@
 	<jsp:include page="footer.jsp">
 		<jsp:param name="title" value="Home" />
 	</jsp:include>
+	<div class="topic-1">
+		<div class="topic-subject">
+			<h2>Is Deze opleiding een nuttig?</h2>
+		</div>
+		<div  class="topic-comments">
+
+		</div>
+	</div>
+	<div class="topic-2">
+		<div class="topic-subject">
+			<h2>Kan web2 & Web3 worden samengevoegd tot 1 vak van 4 studiepunten?</h2>
+		</div>
+		<div  class="topic-comments">
+
+		</div>
+	</div>
+	<div class="topic-3">
+		<div class="topic-subject">
+			<h2>Moet netwerken uitgebreider aan bod komen in deze opleiding?</h2>
+		</div>
+		<div  class="topic-comments">
+
+		</div>
+	</div>
+	<div class="topic-4">
+		<div class="topic-subject">
+			<h2>Wat zijn de examenvragen van web4?</h2>
+		</div>
+		<div  class="topic-comments">
+
+		</div>
+	</div><div class="topic-5">
+		<div class="topic-subject">
+			<h2>Waren de segregatiewetten van de USA anders dan de Neurenberger wetten?</h2>
+		</div>
+		<div  class="topic-comments">
+
+		</div>
+	</div>
+	<form method="post">
+		<p>
+			<label for="naam">name </label>
+			<input type="text" id="naam" name="email" value="">
+		</p>
+		<p>
+			<label for="rating">Your Rating (1-10)</label>
+			<input type="number" id="rating" name="rating" value="" min="1" max="10">
+		</p>
+		<p>
+			<label for="Comment">Comment</label>
+			<input type="number" id="comment" name="rating" value="" min="1" max="10">
+		</p>
+		<p>
+			<label for="topic">Comment</label>
+			<select id="topic" name="topic">
+				<option value="1">Is Deze opleiding een nuttig?</option>
+				<option value="2">Kan web2 & Web3 worden samengevoegd tot 1 vak van 4 studiepunten?</option>
+				<option value="3">Moet netwerken uitgebreider aan bod komen in deze opleiding?</option>
+				<option value="4">Wat zijn de examenvragen van web4?</option>
+				<option value="5">Waren de segregatiewetten van de USA anders dan de Neurenberger wetten?</option>
+			</select>
+		</p>
+		<p>
+			<input type="submit" id="comment-submit" value="Add Comment">
+		</p>
+	</form>
 </body>
 </html>

@@ -160,8 +160,9 @@ public class Person {
 		return status;
 	}
 
-	public void addFriend(Person p){
-		vriendenlijst.put(p.getUserId(),p);
+	public void addFriend(Person friend){
+		//friend.getVriendenlijstMap().put(getUserId(),this);
+		vriendenlijst.put(friend.getUserId(),friend);
 	}
 
 	public void removeFriend(Person p){
@@ -174,5 +175,9 @@ public class Person {
 
 	public ArrayList<Person> getVriendenlijst() {
 		return new ArrayList<>(vriendenlijst.values());
+	}
+
+	public HashMap<String,Person> getVriendenlijstMap() {
+		return vriendenlijst;
 	}
 }

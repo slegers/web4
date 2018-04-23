@@ -21,7 +21,7 @@ function loadStatus(){
 
 function addNewFriend(){
     var email = document.getElementById("email-input");
-    var req = "email=" +encodeURIComponent(email.value);
+    var req = "email=" + encodeURIComponent(email.value);
     xHRObject2.open("POST","Controller?action=AddFriend",true);
     xHRObject2.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xHRObject2.onreadystatechange = getFriends;
@@ -44,9 +44,9 @@ function getFriends(){
                 cell1.innerHTML = obj['firstName'] + " " + obj['lastName'];
                 cell2.innerHTML = obj['status'];
             }
+            setInterval("loadFriends()", 2000);
         }
     }
-    setTimeout("loadFriends()", 2000);
 }
 
 function setNewStatus() {
@@ -75,7 +75,6 @@ function getData(){
             statusPar.removeChild(statusPar.childNodes[0]);
             statusPar.appendChild(quoteText);
         }
-        setTimeout("loadStatus()", 1000);
-
+        setInterval("loadStatus()", 2000);
     }
 }
