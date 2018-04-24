@@ -1,5 +1,8 @@
 package domain;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Comment {
 
     private int score;
@@ -7,13 +10,14 @@ public class Comment {
     private String name;
     private String comment;
 
-    public Comment(){
-
+    @JsonCreator
+    public Comment(@JsonProperty("score")int score, @JsonProperty("name") String name, @JsonProperty("comment") String comment){
+        setId(1);
+        setComment(comment);
+        setName(name);
+        setScore(score);
     }
 
-    public Comment(int id, int score, String name, String comment){
-
-    }
 
     public int getScore() {
         return score;
@@ -57,5 +61,10 @@ public class Comment {
             throw new IllegalArgumentException("The score of a comment should be between 1 and 10.");
         }
         this.score = score;
+    }
+
+    @Override
+    public String toString(){
+        return name + ": " +  comment + "R(" + score +").";
     }
 }
