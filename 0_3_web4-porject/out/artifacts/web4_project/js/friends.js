@@ -132,3 +132,9 @@ function writeResponse(text){
 }
 
 
+$(document).ready(function(){
+    $("#add-friend").click(function(){
+        $("#add_friend_form").show();
+        $("#add-friend").hide();
+    });
+});

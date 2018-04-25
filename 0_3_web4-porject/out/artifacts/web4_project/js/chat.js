@@ -3,5 +3,5 @@ $(document).ready(function(){
         $("#chat-field").show();
         $("#start-chat").hide();
     });
-
 });
+
