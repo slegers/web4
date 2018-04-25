@@ -46,9 +46,16 @@ function getFriends(){
 
                 var cell1 = row.insertCell(0);
                 var cell2 = row.insertCell(1);
+                var cel2 = row.insertCell(2);
 
                 cell1.innerHTML = obj['firstName'] + " " + obj['lastName'];
                 cell2.innerHTML = obj['status'];
+
+                //Create link
+               var a = document.createElement('a');
+               a.setAttribute('href',"http://localhost:8082/Controller?action=OpenChat&id=" + obj['userId']);
+               a.innerHTML = "Chat";
+               cel2.appendChild(a);
             }
             setInterval("loadFriends()", 2000);
             }
@@ -91,8 +98,16 @@ function getData(){
 
 function openSocket(){
     send();
+
+    webSocket.onopen = function(event){
+
+    };
+
     webSocket.onmessage = function(event){
         writeResponse(event.data);
+    };
+    webSocket.onclose = function(event){
+
     };
 }
 

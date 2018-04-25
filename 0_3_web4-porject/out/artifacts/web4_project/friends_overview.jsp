@@ -34,6 +34,7 @@
             <tr>
                 <th>Name</th>
                 <th>Status</th>
+                <th>Chat?</th>
             </tr>
             <tbody id="friends-table">
 
