@@ -24,12 +24,13 @@ public class Person {
 	@JsonIgnore
 	private HashMap<String,Person> vriendenlijst;
 	private String status;
-	//private HashMap<String,ChatHistory> chatHistory;
+	@JsonIgnore
+	private HashMap<String,ChatHistory> chatHistory;
 
 	public Person(String userId, String password, String firstName,
 			String lastName,Role role,String status) {
 		vriendenlijst = new HashMap<>();
-		//chatHistory = new HashMap<>();
+		chatHistory = new HashMap<>();
 		setUserId(userId);
 		setHashedPassword(password);
 		setFirstName(firstName);
@@ -189,17 +190,17 @@ public class Person {
 		return vriendenlijst;
 	}
 
-/*
+	@JsonIgnore
 	public HashMap<String, ChatHistory> getChatHistory() {
 		return chatHistory;
 	}
-
+	@JsonIgnore
 	public void addChatMessage(Person friend, Chatmessage chatmessage){
 		chatHistory.get(friend.getUserId()).addChatMessage(chatmessage);
 	}
-
+	@JsonIgnore
 	public void setChatHistory(HashMap<String, ChatHistory> chatHistory) {
 		this.chatHistory = chatHistory;
 	}
-	*/
+
 }

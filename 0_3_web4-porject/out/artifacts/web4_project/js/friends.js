@@ -132,15 +132,15 @@ function writeResponse(text){
     try
     {
         var obj = JSON.parse(text);
-        console.log(obj.comment);
+        console.log(obj);
     }
     catch (e)
     {
         alert("j");
         alert(e);
     }
-    var messages = document.getElementById("topic-comments-1");
-    messages.innerHTML = messages.innerText + "<br/>" + "jae";
+    var messages = document.getElementById("topic-comments-" + obj.blogId);
+    messages.innerHTML = messages.innerText + "<br/>" + obj.name + ': '+ obj.comment + ' rating ' + obj.score;
 }
 
 

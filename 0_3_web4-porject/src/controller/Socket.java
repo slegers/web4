@@ -38,7 +38,7 @@ public class Socket {
             Comment comment = mapper.readValue(message, Comment.class);
             service.addComment(comment);
             message = comment.toJSON();
-            sendMessageToAll(mapper.writeValueAsString(message));
+            sendMessageToAll(message);
         } catch (IOException e) {
             e.printStackTrace();
         }
