@@ -6,29 +6,31 @@ public class Chatmessage {
     private Person person;
     private int id;
     private  String message;
-
-    public Chatmessage(int id, String message, Person person){
+    private String time;
+    public Chatmessage(int id, String message, Person person,String time){
         setId(id);
         setMessage(message);
         setPerson(person);
+        setTime(time);
     }
 
-    private void setId(int id) {
+    public void setId(int id) {
         if(id < 0){
             throw new IllegalArgumentException("The id of a chatmessage can't be null");
         }
         this.id = id;
     }
 
-    private void setPerson(Person person) {
+    public void setPerson(Person person) {
         if(person == null){
             throw new IllegalArgumentException("The person of a chatmessage can't be null.");
         }
-
+        this.person = person;
     }
 
-    private void setMessage(String message) {
+    public void setMessage(String message) {
         if(message == null || message.trim().isEmpty()){
+            System.out.println("azerazer");
             throw new IllegalArgumentException("the message of a chatmessage can't be null.");
         }
         this.message = message;
@@ -44,5 +46,13 @@ public class Chatmessage {
 
     public String getMessage() {
         return message;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

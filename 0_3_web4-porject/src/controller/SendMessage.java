@@ -1,5 +1,7 @@
 package controller;
 
+import domain.Chatmessage;
+import domain.Person;
 import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 
 import javax.servlet.ServletException;
@@ -18,8 +20,13 @@ public class SendMessage extends RequestHandler {
         Date date = new Date();
         DateFormat format = new SimpleDateFormat("HH:mm");
         String time = format.format(date);
+        Person p = (Person) request.getSession().getAttribute("user");
 
+        String userIdReciever = request.getParameter("id");
+
+        getChatService().addChatMessage(message,userIdReciever,time, p);
         return "{ \"message\":" + "\""+ message + "\"," +
+                "\"name\":" + "\"" + p.getFirstName() + " " + p.getLastName() + ": \"," +
                 "\"time\":" + "\"" + time +  "\" }";
     }
 }

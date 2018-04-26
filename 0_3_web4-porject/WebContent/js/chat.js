@@ -9,9 +9,11 @@ $(document).ready(function(){
 $(document).ready(function() {
     $("#send").click(function(){
         $message = document.getElementById("message").value;
-        $.post("Controller?action=SendMessage", {message:$message}, function(data) {
+        $userId = document.getElementById("userId").value;
+        var o = '${userId}';
+        $.post("Controller?action=SendMessage", {message:$message, id:$userId}, function(data) {
             var obj = JSON.parse(data);
-            $('#chat-venster').append('<div class="container"> <p>' + obj["message"] + '</p> <span class="time-right">' + obj['time'] +'</span> </div>');
+            $('#chat-venster').append('<div class="container"> <p><b>' + obj["name"] + '</b>' + obj["message"] + '</p> <span class="time-right">' + obj['time'] +'</span> </div>');
         });
     });
 });

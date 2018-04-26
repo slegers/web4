@@ -13,4 +13,8 @@ public class ChatHistory {
     public void addChatMessage(Chatmessage chatmessage) {
         chatmessages.put(chatmessage.getId(),chatmessage);
     }
+
+    public HashMap<Integer,Chatmessage> getChatmessages(){
+        return chatmessages;
+    }
 }

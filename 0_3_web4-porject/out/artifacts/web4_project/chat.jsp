@@ -47,6 +47,7 @@
                 <input type="text" id="message">
                 <button id="send">Send</button>
             </div>
+            <input hidden type="text" id="userId" value="${userId}">
         </c:when>
         <c:otherwise>
             <p>Your'e aren't allowed on this page.</p>

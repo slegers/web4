@@ -168,7 +168,7 @@ public class Person {
 	}
 
 	public void addFriend(Person friend){
-		//chatHistory.put(friend.getUserId(),new ChatHistory());
+		chatHistory.put(friend.getUserId(),new ChatHistory());
 		vriendenlijst.put(friend.getUserId(),friend);
 	}
 
