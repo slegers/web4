@@ -15,14 +15,13 @@ public class AddFriend extends RequestHandler
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Person p = (Person) request.getSession().getAttribute("user");
-
         String userId = request.getParameter("email");
-        Person friend = getChatService().getPerson(userId);
-        p.addFriend(friend);
 
+        getChatService().addFriend(p,userId);
         ObjectMapper mapper = new ObjectMapper();
+
         try {
-            return mapper.writeValueAsString(p.getVriendenlijst());
+            return mapper.writeValueAsString(getChatService().getFriendsList(p));
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

@@ -96,8 +96,8 @@ function getData(){
 }
 
 
-function openSocket(){
-    send();
+function openSocket(blogId){
+    send(blogId);
 
     webSocket.onopen = function(event){
 
@@ -111,14 +111,16 @@ function openSocket(){
     };
 }
 
-function send() {
+function send(blogId) {
     var naam = document.getElementById("naam").value;
     var rating = document.getElementById("rating").value;
     var comment = document.getElementById("comment").value;
 
-    var text = ' { "name" : "' + naam +
+    var text = '{ "name" : "' + naam +
         '" , "score" : '  + rating +
-        ', "comment" : "' + comment + '" }';
+        ', "comment" : "' + comment + '" ' +
+        ', "blogId" : "' + blogId + '" ' +
+        '}';
     webSocket.send(text);
 }
 
@@ -127,7 +129,7 @@ function closeSocket(){
 
 }
 function writeResponse(text){
-    var messages = document.getElementById("topic-comments");
+    var messages = document.getElementById("topic-comments-" + blogId);
     messages.innerHTML = messages.innerText + "<br/>" + text;
 }
 

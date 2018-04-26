@@ -13,6 +13,6 @@ public class GetStatus extends RequestHandler{
             return "";
         }
         request.getSession().setAttribute("user", p);
-        return p.getStatus();
+        return getChatService().getStatus(p);
     }
 }

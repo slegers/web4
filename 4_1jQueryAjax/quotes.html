@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Quotes Example with jQuery</title>
+</head>
+
+<body>
+	<h1>All quotes ...</h1>
+	<div id="quotes"></div>
+
+	<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript">
+        $(function () {
+            $.ajax({
+                type: "GET",
+                url: "QuoteServlet?action=overview",
+                dataType: "json",
+                success: function(json){
+                    $(json).each(function(index, quote) {
+                        $('#quotes').append($('<p />').text(quote.author + " : " + quote.text));
+                    })
+                },
+                error: function() {
+                    alert("An error occurred while getting a new quote ...");
+                }
+            });
+        });
+	</script>
+</body>
+</html>

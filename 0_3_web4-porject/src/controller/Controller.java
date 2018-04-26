@@ -38,13 +38,14 @@ public class Controller extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         String destination = "index.jsp";
+        request.setAttribute("blogs",model.getBlogs());
 		RequestHandler handler = null;
         if (action != null) {
 
         	try {
         		handler = controllerFactory.getController(action, model);
 				destination = handler.handleRequest(request, response);
-        	} 
+        	}
         	catch (NotAuthorizedException exc) {
         		List<String> errors = new ArrayList<String>();
         		errors.add(exc.getMessage());

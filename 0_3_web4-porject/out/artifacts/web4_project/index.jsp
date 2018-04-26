@@ -39,15 +39,13 @@
 			</p>
 		</form>
 	</c:otherwise>
-</c:choose> </main>
-	<jsp:include page="footer.jsp">
-		<jsp:param name="title" value="Home" />
-	</jsp:include>
-	<div class="topic-1">
-		<div class="topic-subject">
-			<h2>Is Deze opleiding een nuttig?</h2>
-		</div>
-		<div  id="topic-comments"></div>
+</c:choose>
+	<c:forEach var="b" items="${blogs}">
+		<div class="blog-${b.id}">
+			<div class="topic-subject">
+				<h2>${b.title}</h2>
+			</div>
+			<div  id="topic-comments"></div>
 			<p>
 				<label for="naam">name </label>
 				<input type="text" id="naam" name="naam" value="">
@@ -61,9 +59,13 @@
 				<input type="text" id="comment" name="comment" value="" min="1" max="10">
 			</p>
 			<p>
-				<button onclick="openSocket();" id="comment-submit"> Comment </button>
+				<button onclick="openSocket(${b.id});" id="comment-submit"> Comment </button>
 			</p>
-	</div>
-
+		</div>
+	</c:forEach>
+	</main>
+	<jsp:include page="footer.jsp">
+		<jsp:param name="title" value="Home" />
+	</jsp:include>
 </body>
 </html>

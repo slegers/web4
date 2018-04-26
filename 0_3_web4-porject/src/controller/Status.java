@@ -10,7 +10,7 @@ public class Status extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
             Person p = (Person) request.getSession().getAttribute("user");
-            p.setStatus(request.getParameter("status"));
+            getChatService().setStatus(p,request.getParameter("status"));
             request.getSession().setAttribute("user", p);
             return p.getStatus();
     }

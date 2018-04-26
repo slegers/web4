@@ -20,11 +20,11 @@ public class GetFriends extends RequestHandler
         }
         ObjectMapper mapper = new ObjectMapper();
         try {
-            return mapper.writeValueAsString(p.getVriendenlijst());
+            return mapper.writeValueAsString(getChatService().getFriendsList(p));
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
 
-        return mapper.writeValueAsString(p.getVriendenlijst());
+        return mapper.writeValueAsString(getChatService().getFriendsList(p));
     }
 }

@@ -180,4 +180,5 @@ public class Person {
 	public HashMap<String,Person> getVriendenlijstMap() {
 		return vriendenlijst;
 	}
+
 }

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Quotes Example with jQuery</title>
+</head>
+
+<body onload="getNewQuote()">
+	<h1>Quote of the moment ...</h1>
+	<div id="quote"></div>
+
+	<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script type="text/javascript">
+        function getNewQuote () {
+            $.ajax({
+                type: "GET",
+                url: "QuoteServlet?action=random",
+                dataType: "json",
+                success: function(json){
+					$('#quote').html(json.text);
+                    setTimeout(getNewQuote, 10000);
+                },
+                error: function() {
+                    alert("An error occurred while getting a new quote ...");
+                }
+            });
+        };
+	</script>
+</body>
+</html>

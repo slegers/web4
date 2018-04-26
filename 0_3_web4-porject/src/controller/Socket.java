@@ -1,5 +1,6 @@
 package controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import domain.ChatService;
 import domain.Comment;
 import jdk.nashorn.internal.parser.JSONParser;
 import org.json.*;
@@ -19,7 +20,7 @@ import java.util.Set;
 public class Socket {
 
     private static final Set<Session> sessions = Collections.synchronizedSet(new HashSet<Session>());
-
+    private ChatService service = new ChatService();
     @OnOpen
     public void onOpen(Session session){
         sessions.add(session);
@@ -29,13 +30,13 @@ public class Socket {
     public void onMessage(String message, Session session){
         ObjectMapper mapper = new ObjectMapper();
         try {
+
             Comment comment = mapper.readValue(message, Comment.class);
             message = comment.toString();
             sendMessageToAll(message);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        sendMessageToAll(message);
     }
 
     @OnClose

@@ -45,8 +45,8 @@
         </div>
             <button id="start-chat">Start Chatting</button>
             <div id="chat-field" hidden>
-                <input type="text">
-                <button >Send</button>
+                <input type="text" id="message">
+                <button id="send">Send</button>
             </div>
         </c:when>
         <c:otherwise>
