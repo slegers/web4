@@ -20,7 +20,11 @@ import java.util.Set;
 public class Socket {
 
     private static final Set<Session> sessions = Collections.synchronizedSet(new HashSet<Session>());
-    private ChatService service = new ChatService();
+    private ChatService service;
+
+    public Socket(){
+        service = ChatService.getChatService();
+    }
     @OnOpen
     public void onOpen(Session session){
         sessions.add(session);
@@ -32,8 +36,9 @@ public class Socket {
         try {
 
             Comment comment = mapper.readValue(message, Comment.class);
-            message = comment.toString();
-            sendMessageToAll(message);
+            service.addComment(comment);
+            message = comment.toJSON();
+            sendMessageToAll(mapper.writeValueAsString(message));
         } catch (IOException e) {
             e.printStackTrace();
         }

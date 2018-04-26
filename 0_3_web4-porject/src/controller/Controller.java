@@ -17,11 +17,12 @@ import domain.ChatService;
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private ChatService model = new ChatService();
+	private ChatService model;
 	private ControllerFactory controllerFactory = new ControllerFactory();
 
 	public Controller() {
 		super();
+		model = ChatService.getChatService();
 	}
 
 	protected void doGet(HttpServletRequest request,

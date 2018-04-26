@@ -41,7 +41,7 @@ function getFriends(){
 
             tableb.innerHTML = "";
            for (var i = 0; i < JSON.parse(xHRObject2.responseText).length; i++){
-                var obj = JSON.parse(xHRObject2.responseText);[i];
+                var obj = JSON.parse(xHRObject2.responseText)[i];
                 var row = tableb.insertRow(0);
 
                 var cell1 = row.insertCell(0);
@@ -112,9 +112,9 @@ function openSocket(blogId){
 }
 
 function send(blogId) {
-    var naam = document.getElementById("naam").value;
-    var rating = document.getElementById("rating").value;
-    var comment = document.getElementById("comment").value;
+    var naam = document.getElementById("naam-" +blogId).value;
+    var rating = document.getElementById("rating-"+blogId).value;
+    var comment = document.getElementById("comment-"+blogId).value;
 
     var text = '{ "name" : "' + naam +
         '" , "score" : '  + rating +
@@ -129,8 +129,18 @@ function closeSocket(){
 
 }
 function writeResponse(text){
-    var messages = document.getElementById("topic-comments-" + blogId);
-    messages.innerHTML = messages.innerText + "<br/>" + text;
+    try
+    {
+        var obj = JSON.parse(text);
+        console.log(obj.comment);
+    }
+    catch (e)
+    {
+        alert("j");
+        alert(e);
+    }
+    var messages = document.getElementById("topic-comments-1");
+    messages.innerHTML = messages.innerText + "<br/>" + "jae";
 }
 
 
@@ -140,3 +150,4 @@ $(document).ready(function(){
         $("#add-friend").hide();
     });
 });
+

@@ -30,7 +30,7 @@ public class Blog {
     }
 
     public void addComment(Comment comment){
-        comment.setId(comments.size());
+        comment.setId(comments.size()+1);
         comments.put(comment.getId(),comment);
     }
 

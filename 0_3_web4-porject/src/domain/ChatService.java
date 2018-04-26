@@ -8,7 +8,12 @@ import db.*;
 public class ChatService {
 	private PersonRepository personRepository = new PersonRepositoryStub();
 	private BlogTopicRepositoryStub blogs = new BlogTopicRepositoryStub();
-	public ChatService(){
+	private static ChatService chatService = new ChatService();
+	private ChatService(){
+	}
+
+	public static ChatService getChatService(){
+		return chatService;
 	}
 	public void setStatus(Person p, String status){
 		p.setStatus(status);
@@ -61,5 +66,13 @@ public class ChatService {
 
 	public String getStatus(Person p) {
 		return p.getStatus();
+	}
+
+    public void addComment(Comment comment) {
+		comment.setId(getBlogs().size()+1);
+		getBlog(comment.getBlogId()).addComment(comment);
+    }
+    public Blog getBlog(int blogID){
+		return blogs.getBlog(blogID);
 	}
 }

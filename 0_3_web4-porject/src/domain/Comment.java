@@ -2,6 +2,8 @@ package domain;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class Comment {
 
@@ -9,15 +11,23 @@ public class Comment {
     private int id;
     private String name;
     private String comment;
+    private int blogId;
 
     @JsonCreator
-    public Comment(@JsonProperty("score")int score, @JsonProperty("name") String name, @JsonProperty("comment") String comment){
-        setId(1);
+    public Comment(@JsonProperty("blogID")int blogId, @JsonProperty("score")int score, @JsonProperty("name") String name, @JsonProperty("comment") String comment){
+        setBlogId(blogId);
         setComment(comment);
         setName(name);
         setScore(score);
     }
 
+    private void setBlogId(int blogId) {
+        this.blogId = blogId;
+    }
+
+    public int getBlogId() {
+        return blogId;
+    }
 
     public int getScore() {
         return score;
@@ -66,5 +76,20 @@ public class Comment {
     @Override
     public String toString(){
         return name + ": " +  comment + "R(" + score +").";
+    }
+
+
+    public String toJSON(){
+        try {
+            String s = new JSONObject()
+                    .put("name", this.name)
+                    .put("blogId", this.blogId)
+                    .put("comment", this.comment)
+                    .put("score",this.score).toString();
+            return s;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

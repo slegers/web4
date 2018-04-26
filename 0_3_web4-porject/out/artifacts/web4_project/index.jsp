@@ -45,21 +45,21 @@
 			<div class="topic-subject">
 				<h2>${b.title}</h2>
 			</div>
-			<div  id="topic-comments"></div>
+			<div  id="topic-comments-${b.id}"></div>
 			<p>
-				<label for="naam">name </label>
-				<input type="text" id="naam" name="naam" value="">
+				<label for="naam-${b.id}">name </label>
+				<input type="text" id="naam-${b.id}" name="naam" value="">
 			</p>
 			<p>
-				<label for="rating">Your Rating (1-10)</label>
-				<input type="number" id="rating" name="rating" value="" min="1" max="10">
+				<label for="rating-${b.id}">Your Rating (1-10)</label>
+				<input type="number" id="rating-${b.id}" name="rating" value="" min="1" max="10">
 			</p>
 			<p>
-				<label for="Comment">Comment</label>
-				<input type="text" id="comment" name="comment" value="" min="1" max="10">
+				<label for="Comment-${b.id}">Comment</label>
+				<input type="text" id="comment-${b.id}" name="comment" value="" min="1" max="10">
 			</p>
 			<p>
-				<button onclick="openSocket(${b.id});" id="comment-submit"> Comment </button>
+				<button onclick="openSocket(${b.id});" id="comment-submit--${b.id}"> Comment </button>
 			</p>
 		</div>
 	</c:forEach>
