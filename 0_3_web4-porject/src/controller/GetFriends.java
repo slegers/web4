@@ -1,6 +1,7 @@
 package controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import domain.Person;
 
@@ -19,12 +20,13 @@ public class GetFriends extends RequestHandler
             return "";
         }
         ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
         try {
             return mapper.writeValueAsString(getChatService().getFriendsList(p));
         } catch (JsonProcessingException e) {
-            e.printStackTrace();
+           System.out.println(e.getMessage());
         }
-
         return mapper.writeValueAsString(getChatService().getFriendsList(p));
     }
 }

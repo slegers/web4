@@ -6,7 +6,7 @@ var webSocket;
 window.onload = function (){
     loadStatus();
     loadFriends()
-    webSocket = new WebSocket("ws://localhost:8082/socket");
+    webSocket = new WebSocket("ws://localhost:8080/socket");
 }
 
 function loadFriends(){
@@ -53,7 +53,7 @@ function getFriends(){
 
                 //Create link
                var a = document.createElement('a');
-               a.setAttribute('href',"http://localhost:8082/Controller?action=OpenChat&id=" + obj['userId']);
+               a.setAttribute('href',"http://localhost:8080/Controller?action=OpenChat&id=" + obj['userId']);
                a.innerHTML = "Chat";
                cel2.appendChild(a);
             }
@@ -143,11 +143,11 @@ function writeResponse(text){
     messages.innerHTML = messages.innerText + "<br/>" + "jae";
 }
 
-/*
+
 $(document).ready(function(){
     $("#add-friend").click(function(){
         $("#add_friend_form").show();
         $("#add-friend").hide();
     });
 });
-*/
+

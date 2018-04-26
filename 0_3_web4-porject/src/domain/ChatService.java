@@ -3,6 +3,7 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import db.*;
 
 public class ChatService {
@@ -55,11 +56,13 @@ public class ChatService {
 		return blogs.getBlog(blogId).getComments();
 	}
 
-	public void addFriend(Person p, String userId) {
-		Person friend = getPerson(userId);
+	@JsonIgnore
+	public void addFriend(Person p, String email) {
+		Person friend = getPerson(email);
 		p.addFriend(friend);
+		friend.addFriend(p);
 	}
-
+	@JsonIgnore
 	public ArrayList<Person> getFriendsList(Person p) {
 		return p.getVriendenlijst();
 	}
@@ -75,4 +78,5 @@ public class ChatService {
     public Blog getBlog(int blogID){
 		return blogs.getBlog(blogID);
 	}
+
 }

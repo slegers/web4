@@ -1,5 +1,7 @@
 package domain;
 
+import com.fasterxml.jackson.annotation.*;
+
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -9,21 +11,25 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Person {
-
+	@JsonIgnoreProperties(value = { "vriendenlijst" })
 	private String userId;
 	private String password;
 	private String salt;
 	private String firstName;
 	private String lastName;
 	private Role role;
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	@JsonIgnore
 	private HashMap<String,Person> vriendenlijst;
 	private String status;
+	//private HashMap<String,ChatHistory> chatHistory;
 
 	public Person(String userId, String password, String firstName,
 			String lastName,Role role,String status) {
 		vriendenlijst = new HashMap<>();
+		//chatHistory = new HashMap<>();
 		setUserId(userId);
 		setHashedPassword(password);
 		setFirstName(firstName);
@@ -161,7 +167,7 @@ public class Person {
 	}
 
 	public void addFriend(Person friend){
-		//friend.getVriendenlijstMap().put(getUserId(),this);
+		//chatHistory.put(friend.getUserId(),new ChatHistory());
 		vriendenlijst.put(friend.getUserId(),friend);
 	}
 
@@ -173,12 +179,27 @@ public class Person {
 		addFriend(p);
 	}
 
+	@JsonIgnore
+	@JsonProperty("vriendenlijst")
 	public ArrayList<Person> getVriendenlijst() {
 		return new ArrayList<>(vriendenlijst.values());
 	}
-
+	@JsonIgnore
 	public HashMap<String,Person> getVriendenlijstMap() {
 		return vriendenlijst;
 	}
 
+/*
+	public HashMap<String, ChatHistory> getChatHistory() {
+		return chatHistory;
+	}
+
+	public void addChatMessage(Person friend, Chatmessage chatmessage){
+		chatHistory.get(friend.getUserId()).addChatMessage(chatmessage);
+	}
+
+	public void setChatHistory(HashMap<String, ChatHistory> chatHistory) {
+		this.chatHistory = chatHistory;
+	}
+	*/
 }

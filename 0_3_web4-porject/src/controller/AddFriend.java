@@ -19,12 +19,10 @@ public class AddFriend extends RequestHandler
 
         getChatService().addFriend(p,userId);
         ObjectMapper mapper = new ObjectMapper();
-
         try {
             return mapper.writeValueAsString(getChatService().getFriendsList(p));
         } catch (JsonProcessingException e) {
-            e.printStackTrace();
         }
-        return mapper.writeValueAsString(p.getVriendenlijst());
-    }
+        return "";
+}
 }
