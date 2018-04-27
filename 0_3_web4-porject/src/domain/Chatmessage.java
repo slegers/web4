@@ -30,7 +30,6 @@ public class Chatmessage {
 
     public void setMessage(String message) {
         if(message == null || message.trim().isEmpty()){
-            System.out.println("azerazer");
             throw new IllegalArgumentException("the message of a chatmessage can't be null.");
         }
         this.message = message;

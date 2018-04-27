@@ -37,8 +37,6 @@ function getFriends(){
         if(xHRObject2.readyState == 4){
             if(document.getElementById("friends-table") != null){
             var tableb = document.getElementById("friends-table");
-
-
             tableb.innerHTML = "";
            for (var i = 0; i < JSON.parse(xHRObject2.responseText).length; i++){
                 var obj = JSON.parse(xHRObject2.responseText)[i];

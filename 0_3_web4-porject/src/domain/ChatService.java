@@ -87,4 +87,8 @@ public class ChatService {
 		p.addChatMessage(reciever,m);
 		reciever.addChatMessage(p,m);
 	}
+
+    public String getChatHistoryToJSON(Person p, String friend_id) {
+		return p.getChatHistory().get(friend_id).getChatmessagesToJSon();
+    }
 }

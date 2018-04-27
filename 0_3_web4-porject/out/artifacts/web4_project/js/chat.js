@@ -18,3 +18,23 @@ $(document).ready(function() {
     });
 });
 
+$(document).ready(function(friend_id) {
+   $userId = document.getElementById("userId").value;
+    $.ajax({
+        type: "GET",
+        url: "/Controller?action=GetChatMessages&id="+$userId,
+        dataType: "text",
+        success: function(json){
+            var obj = JSON.parse(json);
+            alert(obj.length);
+            //$("#chat-venster").remove();
+            for (var i = 0; i < obj.length; i++){
+                $('#chat-venster').append('<div class="container"> <p><b>' + obj["\""+i+ "\""]["person"] + '</b>' + obj["\""+i+ "\""]["message"] + '</p> <span class="time-right">' + obj["\""+i+ "\""]['time'] +'</span> </div>');
+            }
+        },
+        error: function() {
+            alert("An error occurred while getting a new quote ...");
+        }
+    });
+});
+
