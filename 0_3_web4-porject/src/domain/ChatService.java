@@ -82,7 +82,7 @@ public class ChatService {
 
 	public void addChatMessage(String message, String userId, String time, Person p) {
 		Chatmessage m = new Chatmessage(1,message,p,time);
-		m.setId(p.getChatHistory().size()+1);
+		m.setId(p.getChatHistory().get(userId).getChatmessages().size()+1);
 		Person reciever = getPerson(userId);
 		p.addChatMessage(reciever,m);
 		reciever.addChatMessage(p,m);

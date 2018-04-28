@@ -18,23 +18,25 @@ $(document).ready(function() {
     });
 });
 
-$(document).ready(function(friend_id) {
-   $userId = document.getElementById("userId").value;
+$(document).ready(test = function() {
+    getChatMessages();
+});
+
+function getChatMessages() {
+    $userId = document.getElementById("userId").value;
     $.ajax({
         type: "GET",
-        url: "/Controller?action=GetChatMessages&id="+$userId,
+        url: "/Controller?action=GetChatMessages&id=" + $userId,
         dataType: "text",
-        success: function(json){
+        success: function (json) {
             var obj = JSON.parse(json);
-            alert(obj.length);
-            //$("#chat-venster").remove();
-            for (var i = 0; i < obj.length; i++){
-                $('#chat-venster').append('<div class="container"> <p><b>' + obj["\""+i+ "\""]["person"] + '</b>' + obj["\""+i+ "\""]["message"] + '</p> <span class="time-right">' + obj["\""+i+ "\""]['time'] +'</span> </div>');
+            for (var i = 0; i < Object.keys(obj).length; i++) {
+                $('#chat-venster').append('<div class="container"> <p><b>' + obj[i]["person"] + ': </b>' + obj[i]["message"] + '</p> <span class="time-right">' + obj[i]['time'] + '</span> </div>');
             }
         },
-        error: function() {
+        error: function () {
             alert("An error occurred while getting a new quote ...");
         }
     });
-});
 
+}
