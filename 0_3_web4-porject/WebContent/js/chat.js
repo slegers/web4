@@ -30,12 +30,14 @@ function getChatMessages() {
         dataType: "text",
         success: function (json) {
             var obj = JSON.parse(json);
+            $("#chat-venster").empty();
             for (var i = 0; i < Object.keys(obj).length; i++) {
                 $('#chat-venster').append('<div class="container"> <p><b>' + obj[i]["person"] + ': </b>' + obj[i]["message"] + '</p> <span class="time-right">' + obj[i]['time'] + '</span> </div>');
             }
+            setTimeout(getChatMessages, 2000);
+
         },
         error: function () {
-            alert("An error occurred while getting a new quote ...");
         }
     });
 
