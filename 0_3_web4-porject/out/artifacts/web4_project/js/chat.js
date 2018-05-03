@@ -38,7 +38,6 @@ function getChatMessages() {
 
         },
         error: function () {
-            alert("An error occurred while getting a new quote ...");
         }
     });
 

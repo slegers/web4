@@ -29,17 +29,7 @@
     </c:if>
     <c:choose>
         <c:when test="${user!=null}">
-        <div id="chat-venster">
-            <div class="container">
-                <p>Hello. How are you today?</p>
-                <span class="time-right">11:00</span>
-            </div>
-
-            <div class="container darker">
-                <p>Hey! I'm fine. Thanks for asking!</p>
-                <span class="time-left">11:01</span>
-            </div>
-        </div>
+        <div id="chat-venster"></div>
             <button id="start-chat">Start Chatting</button>
             <div id="chat-field" hidden>
                 <input type="text" id="message">

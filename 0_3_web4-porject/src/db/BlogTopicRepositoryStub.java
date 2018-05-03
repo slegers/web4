@@ -20,6 +20,8 @@ public class BlogTopicRepositoryStub {
         blogs.put(3,new Blog(3,"Waren de segregatiewetten van de USA anders dan de neuenbergwetten?"));
         blogs.put(4,new Blog(4,"Wat was er eerst, het kip of het ei?"));
         blogs.put(5,new Blog(5,"2B || !2B?"));
+        blogs.put(6,new Blog(6,"Size does matter?"));
+
     }
 
     public Blog getBlog(int blogId){

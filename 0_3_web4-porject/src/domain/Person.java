@@ -47,6 +47,17 @@ public class Person {
 	public Person() {
 
 	}
+	@Override
+	public String toString(){
+		return "Person: \n"
+				+ "firstname: "+ getFirstName()
+				+ "lastname: " + getLastName()
+				+ "password: " + getPassword()
+				+ "userid: "   + getUserId()
+				+ "role: "     + getRole()
+				+ "status: "   + getStatus()
+				+ "salt: "     + getSalt();
+	}
 
 	public Role getRole() {
 		return this.role;

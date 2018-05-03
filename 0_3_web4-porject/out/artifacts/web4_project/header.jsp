@@ -15,9 +15,10 @@
 <nav>
 <ul>
     <c:choose>
-        <c:when test="${param.title=='Home'}">
+        <c:when test="${param.title=='Home' && user == null}">
             <li  id="actual"><a href="Controller">Home</a></li>
-            <li><a href="Controller?action=FriendsOverview">Friends</a></li>
+            <li><a href="Controller?action=RegisterPage">Register</a></li>
+
         </c:when>
         <c:otherwise>
             <li><a href="Controller">Home</a></li>
