@@ -9,6 +9,7 @@ $(document).ready(function(){
 $(document).ready(function() {
     $("#send").click(function(){
         $message = document.getElementById("message").value;
+        document.getElementById("message").value = '';
         $userId = document.getElementById("userId").value;
         var o = '${userId}';
         $.post("Controller?action=SendMessage", {message:$message, id:$userId}, function(data) {
