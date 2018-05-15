@@ -23,6 +23,7 @@ $(document).ready(test = function() {
     getChatMessages();
 });
 
+
 function getChatMessages() {
     $userId = document.getElementById("userId").value;
     $.ajax({
