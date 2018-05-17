@@ -1,10 +1,22 @@
-<h2>{{ user.firstname | uppercase }} Details</h2>
-<div><span>email: </span>{{user.email}}</div>
-<div><span>firstname: </span>{{user.firstname}}</div>
-<div><span>lastname: </span>{{user.lastname}}</div>
+<h2>Users</h2>
+<ul class="users">
+  <li *ngFor="let user of users"
+      [class.selected]="user === selectedUser"
+      (click)="onSelect(user)">
+    <span class="badge">{{user.firstname}}</span> {{user.lastname}} <br>
+  </li>
+</ul>
 
-<div>
-  <label>name:
-    <input [(ngModel)]="user.firstname" placeholder="firstname">
-  </label>
+<div *ngIf="selectedUser">
+  <h2>{{ selectedUser.firstname | uppercase }} Details</h2>
+  <div><span>id: </span>{{selectedUser.email}}</div>
+  <div><span>firstname: </span>{{selectedUser.firstname}}</div>
+  <div><span>firstname: </span>{{selectedUser.lastname}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedUser.firstname" placeholder="name">
+    </label>
+  </div>
+
 </div>
+
