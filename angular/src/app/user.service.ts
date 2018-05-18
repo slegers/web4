@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { User } from './user';
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,40 +20,14 @@ export class UserService {
 
   }
 
-  private userUrl = 'http://localhost:8080/Controller?action=GetFriends';
+  public userUrl = 'http://localhost:8080/Controller?action=GetUsers';
   private log(message: string) {
     this.messageService.add('Userservice: ' + message);
   }
 
   getUsers(): Observable<User[]> {
-    this.log('test');
-    /*return this.http.get<User[]>(this.userUrl).pipe(
-      tap(users => this.log('fetched users')),
-      catchError(this.handleError('getHeroes', []))
-    ); */
+    this.log('fetch succeeded');
     return this.http.get<User[]>(this.userUrl);
-/*
-    return of([
-      {
-        userId: 'Bram@ucll.be',
-        firstName: 'Bram',
-        lastName: 'VDD',
-        role: 'lid',
-        status: 'online',
-        password: 't',
-        salt: 't',
-        },
-      {
-        userId: 'Wouter@ucll.be',
-        firstName: 'Wouter',
-        lastName: 'slegers',
-        role: 'lid',
-        status: 'ofline',
-        password: 't',
-        salt: 't',
-      },
-    ]);
-    */
   }
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
