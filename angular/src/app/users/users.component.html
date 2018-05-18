@@ -7,16 +7,6 @@
   </li>
 </ul>
 
-<div *ngIf="selectedUser">
-  <h2>{{ selectedUser.firstname | uppercase }} Details</h2>
-  <div><span>id: </span>{{selectedUser.email}}</div>
-  <div><span>firstname: </span>{{selectedUser.firstname}}</div>
-  <div><span>firstname: </span>{{selectedUser.lastname}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedUser.firstname" placeholder="name">
-    </label>
-  </div>
+<app-user-detail [user]="selectedUser"></app-user-detail>
 
-</div>
 
