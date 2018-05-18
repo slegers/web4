@@ -2,17 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../user';
 import { UserService } from '../user.service';
 
-const user: User[] = [
-  {firstname: 'Bram',
-    lastname: 'Slegers',
-    email: 'bram@ucll.be'},
-  {
-    firstname: 'Maarten',
-    lastname: 'Slegers',
-    email: 'maarten@ucll.be'
-  }
-];
-
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -35,6 +24,8 @@ export class UsersComponent implements OnInit {
     this.selectedUser = u;
   }
   getUsers(): void {
-    this.users = this.userService.getHeroes();
+    /* subscribe makes the async funtion possible */
+    this.userService.getUsers()
+      .subscribe(users => this.users = users);
   }
 }

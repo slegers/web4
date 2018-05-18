@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { User } from './user';
+import { Observable, of } from 'rxjs';
+import { MessageService } from './message.service';
+
 
 // Class participates in dependency injection system
 @Injectable({
@@ -8,11 +11,12 @@ import { User } from './user';
 })
 export class UserService {
 
-  constructor() { }
+  constructor(private messageService: MessageService) { }
 
-  getHeroes(): User[] {
-    return [
-      {firstname: 'Bram',
+
+  getUsers(): Observable<User[]> {
+    this.messageService.add('Userservice: fetched users');
+    return of([{firstname: 'Bram',
         lastname: 'Slegers',
         email: 'bram@ucll.be'},
       {
@@ -20,6 +24,6 @@ export class UserService {
         lastname: 'Slegers',
         email: 'maarten@ucll.be'
       }
-    ];
+    ]);
   }
 }
