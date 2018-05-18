@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../user';
+import { UserService } from '../user.service';
 
 const user: User[] = [
   {firstname: 'Bram',
@@ -21,14 +22,19 @@ const user: User[] = [
 export class UsersComponent implements OnInit {
   selectedUser: User;
 
-  users: User[] = user;
-  constructor() { }
+  users: User[];
+  /* Crreates singelton of service */
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.getUsers();
   }
 
 
   onSelect(u: User): void {
     this.selectedUser = u;
+  }
+  getUsers(): void {
+    this.users = this.userService.getHeroes();
   }
 }
