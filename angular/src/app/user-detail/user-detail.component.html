@@ -1,11 +1,17 @@
 <div *ngIf="user">
-  <h2>{{ user.firstname | uppercase }} Details</h2>
-  <div><span>id: </span>{{user.email}}</div>
-  <div><span>firstname: </span>{{user.firstname}}</div>
-  <div><span>firstname: </span>{{user.lastname}}</div>
+  <h2>{{ user.firstName | uppercase }} Details</h2>
+  <div><span>id: </span>{{user.userId}}</div>
+  <div><span>firstname: </span>{{user.firstName}}</div>
+  <div><span>lastname: </span>{{user.lastName}}</div>
+  <div><span>role: </span>{{user.role}}</div>
+  <div><span>status: </span>{{user.status}}</div>
+  <div><span>status: </span>{{user.password}}</div>
+  <div><span>status: </span>{{user.salt}}</div>
+
+
   <div>
     <label>name:
-      <input [(ngModel)]="user.firstname" placeholder="name">
+      <input [(ngModel)]="user.firstName" placeholder="name">
     </label>
   </div>
 </div>

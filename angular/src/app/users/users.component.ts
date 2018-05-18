@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../user';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserService } from '../user.service';
 
 @Component({
@@ -24,7 +25,7 @@ export class UsersComponent implements OnInit {
     this.selectedUser = u;
   }
   getUsers(): void {
-    /* subscribe makes the async funtion possible */
+    /* subscribe makes the async fn*/
     this.userService.getUsers()
       .subscribe(users => this.users = users);
   }

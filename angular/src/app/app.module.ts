@@ -6,6 +6,7 @@ import { UsersComponent } from './users/users.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './/app-routing.module';
+import {HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -13,12 +14,14 @@ import { AppRoutingModule } from './/app-routing.module';
     AppComponent,
     UsersComponent,
     UserDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
