@@ -3,8 +3,9 @@ import { User } from './user';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { map, take } from 'rxjs/operators';
+import { map, take,tap } from 'rxjs/operators';
 import { interval } from 'rxjs';
+import {catchError} from 'rxjs/internal/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -39,5 +40,12 @@ export class UserService {
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
+  }
+
+  updateUser (user: User): Observable<any> {
+    return this.http.post(this.userUrl, user, httpOptions).pipe(
+      tap(_ => this.log(`updated user id=${user.userId}`)),
+      catchError(this.handleError<any>('updateHero'))
+    );
   }
 }

@@ -5,13 +5,11 @@
   <div><span>lastname: </span>{{user.lastName}}</div>
   <div><span>role: </span>{{user.role}}</div>
   <div><span>status: </span>{{user.status}}</div>
-  <div><span>status: </span>{{user.password}}</div>
-  <div><span>status: </span>{{user.salt}}</div>
-
-
   <div>
-    <label>name:
-      <input [(ngModel)]="user.firstName" placeholder="name">
+    <label>status:
+      <input [(ngModel)]="user.status" placeholder="status">
+      <button (click)="save()">save</button>
+
     </label>
   </div>
 </div>
