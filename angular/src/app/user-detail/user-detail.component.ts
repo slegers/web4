@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../user';
+import { UserService } from '../user.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-user-detail',
@@ -8,7 +10,14 @@ import { User } from '../user';
 })
 export class UserDetailComponent implements OnInit {
   @Input() user: User;
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private userService: UserService,
+  ) {}
+
   ngOnInit() {
+  }
+  save(): void {
+    this.userService.updateUser(this.user);
   }
 }
