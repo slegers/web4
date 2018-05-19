@@ -59,7 +59,8 @@ public class Controller extends HttpServlet {
 			view.forward(request, response);
 		}
 		else {
-        	response.setHeader("Access-Control-Allow-Origin","*");
+			response.setContentType("application/json");
+			response.setHeader("Access-Control-Allow-Origin","*");
         	response.getWriter().write(destination);
 		}
 	}

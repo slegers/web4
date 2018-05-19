@@ -13,18 +13,15 @@ import java.io.IOException;
 public class GetUsers extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Person p = (Person) request.getSession().getAttribute("user");
-        if(p == null){
-            return "";
-        }
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-
         try {
+            System.out.println(mapper.writeValueAsString(getChatService().getPersons()));
             return mapper.writeValueAsString(getChatService().getPersons());
         } catch (JsonProcessingException e) {
             System.out.println(e.getMessage());
         }
+        System.out.println(mapper.writeValueAsString(getChatService().getPersons()));
         return mapper.writeValueAsString(getChatService().getPersons());
     }
 }
