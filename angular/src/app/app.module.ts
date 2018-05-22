@@ -8,6 +8,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './/app-routing.module';
 import {HttpClientModule } from '@angular/common/http';
 import {UserService} from './user.service';
+import { UserLocalComponent } from './user-local/user-local.component';
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import {UserService} from './user.service';
     UsersComponent,
     UserDetailComponent,
     MessagesComponent,
-
+    UserLocalComponent,
   ],
   imports: [
     BrowserModule,

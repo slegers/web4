@@ -3,9 +3,9 @@ import { User } from './user';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { map, take,tap } from 'rxjs/operators';
-import { interval } from 'rxjs';
+import { map, take, tap } from 'rxjs/operators';
 import {catchError} from 'rxjs/internal/operators';
+import {USERSLOCAL} from './mock-users';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -43,9 +43,14 @@ export class UserService {
   }
 
   updateUser (user: User): Observable<any> {
-    return this.http.post(this.userUrl, user, httpOptions).pipe(
-      tap(_ => this.log(`updated user id=${user.userId}`)),
+    const ur = 'http://localhost:8080/Controller?action=SaveSt';
+    return this.http.post<User>(ur, user, httpOptions).pipe(
+      tap(() => this.log(`updated user id=${user.userId}`)),
       catchError(this.handleError<any>('updateHero'))
     );
+  }
+
+  getLocalUsers() {
+    return of(USERSLOCAL);
   }
 }

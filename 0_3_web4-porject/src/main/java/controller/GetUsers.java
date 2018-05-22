@@ -16,12 +16,9 @@ public class GetUsers extends RequestHandler {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         try {
-            System.out.println(mapper.writeValueAsString(getChatService().getPersons()));
             return mapper.writeValueAsString(getChatService().getPersons());
         } catch (JsonProcessingException e) {
-            System.out.println(e.getMessage());
         }
-        System.out.println(mapper.writeValueAsString(getChatService().getPersons()));
         return mapper.writeValueAsString(getChatService().getPersons());
     }
 }

@@ -13,7 +13,6 @@ import {interval, Observable, timer} from 'rxjs';
 
 export class UsersComponent implements OnInit {
   selectedUser: User;
-
   users: User[];
   /* Crreates singelton of service */
   constructor(private userService: UserService) { }
@@ -26,16 +25,12 @@ export class UsersComponent implements OnInit {
   onSelect(u: User): void {
     this.selectedUser = u;
   }
+
   getUsers(): void {
-/*    this.userService.getUsers()
-      .subscribe((users) => this.users = users); */
-   /* interval(2500).subscribe(this.userService.getUsers()
-      .subscribe((users) => this.users = users));*/
    const n = interval(1000);
       n.subscribe(() => {
         this.userService.getUsers().subscribe((data) => this.users = data);
       });
-
-
   }
+
 }
