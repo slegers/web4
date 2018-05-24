@@ -55,10 +55,12 @@ public class Controller extends HttpServlet {
         	}
         }
         if (handler == null || handler instanceof SynHandler) {
+        	//normale webapplicatie
 			RequestDispatcher view = request.getRequestDispatcher(destination);
 			view.forward(request, response);
 		}
 		else {
+        	//Zorgt ervoor om JSON terug te geven
 			response.setContentType("application/json");
 			response.setHeader("Access-Control-Allow-Origin","*");
         	response.getWriter().write(destination);

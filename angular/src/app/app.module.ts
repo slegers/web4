@@ -12,6 +12,7 @@ import { UserLocalComponent } from './user-local/user-local.component';
 
 
 @NgModule({
+  /* lijst van directives en pipes (transformeert data) die beschikbaar moeten zijn in de app. */
   declarations: [
     AppComponent,
     UsersComponent,
@@ -19,12 +20,14 @@ import { UserLocalComponent } from './user-local/user-local.component';
     MessagesComponent,
     UserLocalComponent,
   ],
+  /* lijst van modules die beschikbaar moeten zijn in de app */
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule
   ],
+  /** dependencies injectablex **/
   providers: [UserService],
   bootstrap: [AppComponent]
 })

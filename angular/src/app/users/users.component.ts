@@ -14,7 +14,7 @@ import {interval, Observable, timer} from 'rxjs';
 export class UsersComponent implements OnInit {
   selectedUser: User;
   users: User[];
-  /* Crreates singelton of service */
+  /* Crreates singelton of service (uses DI) */
   constructor(private userService: UserService) { }
 
   ngOnInit() {

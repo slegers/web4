@@ -113,7 +113,9 @@ function send(blogId) {
     var naam = document.getElementById("naam-" +blogId).value;
     var rating = document.getElementById("rating-"+blogId).value;
     var comment = document.getElementById("comment-"+blogId).value;
-
+    document.getElementById("naam-" +blogId).value = "";
+    document.getElementById("rating-"+blogId).value ="";
+    document.getElementById("comment-"+blogId).value ="";
     var text = '{ "name" : "' + naam +
         '" , "score" : '  + rating +
         ', "comment" : "' + comment + '" ' +
@@ -134,7 +136,7 @@ function writeResponse(text){
     }
     catch (e)
     {
-        alert("j");
+        alert("unaible to wite socket");
         alert(e);
     }
     var messages = document.getElementById("topic-comments-" + obj.blogId);

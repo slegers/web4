@@ -23,7 +23,6 @@ public class Register extends RequestHandler implements SynHandler {
             p.setStatus("online");
             p.setRole(Role.LID);
             getChatService().addPerson(p);
-            System.out.print(p.toString());
         }catch (IllegalArgumentException e){
             errors.add(e.getMessage());
         }catch (NullPointerException e){
