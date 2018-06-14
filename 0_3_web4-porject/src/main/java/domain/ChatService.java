@@ -10,6 +10,7 @@ public class ChatService {
 	private PersonRepository personRepository = new PersonRepositoryStub();
 	private BlogTopicRepositoryStub blogs = new BlogTopicRepositoryStub();
 	private static ChatService chatService = new ChatService();
+	private PuntRepoStub mem = new PuntRepoStub();
 	private ChatService(){
 	}
 
@@ -91,4 +92,13 @@ public class ChatService {
     public String getChatHistoryToJSON(Person p, String friend_id) {
 		return p.getChatHistory().get(friend_id).getChatmessagesToJSon();
     }
+
+    public ArrayList<Punt> getPunten() {
+		return mem.getPunten();
+    }
+
+    public void addPunt(Punt p){
+		mem.add(p);
+	}
+
 }

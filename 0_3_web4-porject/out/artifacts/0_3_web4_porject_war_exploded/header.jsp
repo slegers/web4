@@ -18,6 +18,7 @@
         <c:when test="${param.title=='Home' && user == null}">
             <li  id="actual"><a href="Controller">Home</a></li>
             <li><a href="Controller?action=RegisterPage">Register</a></li>
+            <li><a href="Controller?action=PuntenPage">Punten</a></li>
 
         </c:when>
         <c:otherwise>
